@@ -1,10 +1,22 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import { motion } from 'framer-motion'
+import Link from 'next/link';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 const NavBar = ({ isScrolled }) => {
+  const navVariants = {
+    hidden: { y: -100, opacity: 0 },
+    visible: { y: 0, opacity: 1, transition: { duration: 0.5 } },
+  };
+
   return (
-    <header className={`sticky top-2 px-2 z-50 transition-all duration-300 ${isScrolled ? 'bg-black bg-opacity-80' : 'bg-transparent'}`}>
+    <motion.header
+      variants={navVariants}
+      initial="hidden"
+      animate="visible"
+      className={`sticky top-2 px-2 z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-black bg-opacity-80' : 'bg-transparent'
+      }`}
+    >
       <nav className="container mx-auto px-2 py-2 flex justify-between items-center">
         <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
           <Link href="/" passHref>
@@ -31,8 +43,8 @@ const NavBar = ({ isScrolled }) => {
           ))}
         </ul>
       </nav>
-    </header>
-  )
-}
+    </motion.header>
+  );
+};
 
-export default NavBar
+export default NavBar;

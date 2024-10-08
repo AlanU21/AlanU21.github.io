@@ -1,26 +1,30 @@
-import { useState, useEffect } from 'react'
-import NavBar from './NavBar'
-import Footer from './Footer'
+import { useState, useEffect } from 'react';
+import NavBar from './NavBar';
+import Footer from './Footer';
+import { motion } from 'framer-motion';
 
 const Layout = ({ children }) => {
-  const [isScrolled, setIsScrolled] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0)
-    }
+      setIsScrolled(window.scrollY > 0);
+    };
 
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-black to-light-gray">
-      <NavBar isScrolled={isScrolled} />
+    <motion.div
+      className="min-h-screen flex flex-col bg-gradient-to-b from-black to-light-gray"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+    >
       <main className="flex-grow">{children}</main>
-      <Footer />
-    </div>
-  )
-}
+    </motion.div>
+  );
+};
 
-export default Layout
+export default Layout;

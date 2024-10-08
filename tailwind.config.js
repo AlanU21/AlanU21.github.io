@@ -8,7 +8,7 @@ module.exports = {
     extend: {
       colors: {
         'dark-gray': '#1C1C1C',
-        'gold': '#FFBF29',
+        'gold': '#FFC107',
         'light-gray': '#5B5B5B',
       },
       fontFamily: {
