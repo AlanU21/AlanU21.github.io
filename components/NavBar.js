@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
-const NavBar = ({ isScrolled }) => {
+const NavBar = ({ isScrolled, isFirstLoad }) => {
   const navVariants = {
     hidden: { y: -100, opacity: 0 },
     visible: { y: 0, opacity: 1, transition: { duration: 0.5 } },
@@ -11,10 +11,10 @@ const NavBar = ({ isScrolled }) => {
   return (
     <motion.header
       variants={navVariants}
-      initial="hidden"
+      initial={isFirstLoad ? "hidden" : "visible"}
       animate="visible"
-      className={`sticky top-2 px-2 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-black bg-opacity-80' : 'bg-transparent'
+      className={`sticky top-0 px-2 z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-black bg-opacity-50' : 'bg-transparent'
       }`}
     >
       <nav className="container mx-auto px-2 py-2 flex justify-between items-center">

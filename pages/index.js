@@ -116,11 +116,6 @@ export default function Home() {
         <link rel="canonical" href="https://www.alanuthuppan.com" />
       </Head>
 
-      {/* Navbar Animation */}
-      <motion.div initial="hidden" animate={navControls} variants={navVariants}>
-        <NavBar />
-      </motion.div>
-
       <div className="container mx-auto px-4 py-20 text-center">
         {/* "Hello 👋🏾, I'm" Animation */}
         <motion.div
@@ -161,7 +156,7 @@ export default function Home() {
         >
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
             <Link
-              href="docs/Alan_Uthuppan_Resume.pdf"
+              href="docs/AlanUthuppanResume.pdf"
               passHref
               className="bg-black text-white border-2 border-gold rounded-full px-10 py-4 font-regular hover:bg-gold hover:text-black hover:font-semibold transition-all duration-300 inline-block"
               target="_blank"
@@ -181,11 +176,6 @@ export default function Home() {
           </motion.div>
         </motion.div>
       </div>
-
-      {/* Footer Animation */}
-      <motion.div initial="hidden" animate={footerControls} variants={footerVariants}>
-        <Footer />
-      </motion.div>
     </div>
   );
 }

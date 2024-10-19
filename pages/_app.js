@@ -5,9 +5,11 @@ import { useState, useEffect } from 'react';
 
 function MyApp({ Component, pageProps, router }) {
   const [loading, setLoading] = useState(true);
+  const [isFirstLoad, setIsFirstLoad] = useState(true);
 
   useEffect(() => {
     setTimeout(() => setLoading(false), 1500);
+    setIsFirstLoad(false);
   }, []);
 
   if (loading) {
@@ -23,23 +25,23 @@ function MyApp({ Component, pageProps, router }) {
   }
 
   return (
-    <AnimatePresence mode="wait">
-      <motion.div
-        key={router.route}
-        initial="pageInitial"
-        animate="pageAnimate"
-        exit="pageExit"
-        variants={{
-          pageInitial: { opacity: 0 },
-          pageAnimate: { opacity: 1 },
-          pageExit: { opacity: 0 },
-        }}
-      >
-        <Layout>
+    <Layout isFirstLoad={isFirstLoad}>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={router.route}
+          initial="pageInitial"
+          animate="pageAnimate"
+          exit="pageExit"
+          variants={{
+            pageInitial: { opacity: 0 },
+            pageAnimate: { opacity: 1 },
+            pageExit: { opacity: 0 },
+          }}
+        >
           <Component {...pageProps} />
-        </Layout>
-      </motion.div>
-    </AnimatePresence>
+        </motion.div>
+      </AnimatePresence>
+    </Layout>
   );
 }
 

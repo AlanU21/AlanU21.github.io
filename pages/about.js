@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Timeline from '../components/Timeline';
-import styles from '../styles/about.module.css';
+import styles from '../styles/About.module.css';
 
 const About = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
@@ -26,7 +26,7 @@ const About = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-20">
+    <div className="container mx-auto px-4 py-8">
       <Head>
         <title>Alan Uthuppan - Portfolio</title>
         <meta name="description" content="Learn more about Alan Uthuppan, an aspiring AI/ML Engineer with a strong foundation in data science, machine learning, and software development." />
@@ -49,12 +49,14 @@ const About = () => {
           />
         </div>
         <h1 className="text-4xl font-bold text-gold mb-4">About Me</h1>
-        <p className="text-white text-lg max-w-2xl mx-auto">
-          Aspiring AI/ML Engineer with a strong foundation in data science, machine learning, and software development. 
-          Currently pursuing a Master of Science in Artificial Intelligence & Machine Learning at Drexel University, 
-          while completing dual Bachelor's degrees in Computer Science and Data Science at Temple University. 
-          Passionate about creating machine learning models and automating data extraction processes to solve complex, real-world problems.
-        </p>
+        <div className={`${styles.blurbContainer} mx-auto`}>
+          <p className={`${styles.blurb} text-black text-lg`}>
+            Aspiring AI/ML Engineer with a strong foundation in data science, machine learning, and software development. 
+            Currently pursuing a Master of Science in Artificial Intelligence & Machine Learning at Drexel University, 
+            while completing dual Bachelor's degrees in Computer Science and Data Science at Temple University. 
+            Passionate about creating machine learning models and automating data extraction processes to solve complex, real-world problems.
+          </p>
+        </div>
       </motion.div>
 
       <motion.div

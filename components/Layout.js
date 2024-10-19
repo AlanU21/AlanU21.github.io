@@ -3,7 +3,7 @@ import NavBar from './NavBar';
 import Footer from './Footer';
 import { motion } from 'framer-motion';
 
-const Layout = ({ children }) => {
+const Layout = ({ children, isFirstLoad }) => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -16,14 +16,11 @@ const Layout = ({ children }) => {
   }, []);
 
   return (
-    <motion.div
-      className="min-h-screen flex flex-col bg-gradient-to-b from-black to-light-gray"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1 }}
-    >
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-black to-light-gray">
+      <NavBar isScrolled={isScrolled} isFirstLoad={isFirstLoad} />
       <main className="flex-grow">{children}</main>
-    </motion.div>
+      <Footer isFirstLoad={isFirstLoad} />
+    </div>
   );
 };
 

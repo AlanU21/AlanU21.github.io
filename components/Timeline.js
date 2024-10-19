@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
-import { FaGraduationCap, FaLaptopCode } from 'react-icons/fa';
+import { FaGraduationCap, FaLaptopCode, FaChalkboardTeacher } from 'react-icons/fa';
 import styles from '../styles/timeline.module.css';
 
 const timelineData = [
   {
-    date: 'August 2020 - May 2024',
-    title: 'Temple University',
-    description: 'Bachelor of Science - Computer Science & Data Science',
+    date: 'September 2024 - June 2026',
+    title: 'Master of Science - Artificial Intelligence & Machine Learning',
+    description: 'Drexel University',
     icon: <FaGraduationCap />,
     side: 'left',
   },
@@ -18,38 +18,50 @@ const timelineData = [
     side: 'right',
   },
   {
-    date: 'Graduating June 2026',
-    title: 'Drexel University',
-    description: 'Master of Science - Artificial Intelligence & Machine Learning',
-    icon: <FaGraduationCap />,
+    date: 'September 2021 - January 2022',
+    title: 'Teaching Assistant',
+    description: 'Assisted in teaching and grading Java programming for over 120 students in CIS 1068: Program Design and Abstraction.',
+    icon: <FaChalkboardTeacher />,
     side: 'left',
+  },
+  {
+    date: 'August 2020 - May 2024',
+    title: 'Bachelor of Science - Computer Science & Data Science',
+    description: 'Temple University',
+    icon: <FaGraduationCap />,
+    side: 'right',
   },
 ];
 
 const Timeline = () => {
   return (
     <div className={styles.timeline}>
+      <div className={styles.timelineLine}></div>
+
       {timelineData.map((item, index) => (
         <motion.div
           key={index}
           className={`${styles.timelineItem} ${styles[item.side]}`}
-          initial={{ opacity: 0, x: item.side === 'left' ? -50 : 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.8 }}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5 }}
         >
           <div className={styles.timelineContent}>
-            <div className={styles.timelineIcon}>{item.icon}</div>
-            <motion.div
-              className={styles.timelineDetails}
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: 'spring', stiffness: 300 }}
-            >
-              <h3 className="text-gold font-semibold">{item.title}</h3>
-              <p className="text-white">{item.date}</p>
-              <p className="text-gray-300">{item.description}</p>
-            </motion.div>
+            <h3 className="text-gold font-semibold">{item.title}</h3>
+            <p className="text-white">{item.date}</p>
+            <p className="text-gray-300">{item.description}</p>
           </div>
+
+          <motion.div
+            className={`${styles.timelineIcon} ${styles[item.side]}`}
+            initial={{ opacity: 0, scale: 0 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ delay: 0.2, duration: 0.3 }}
+          >
+            {item.icon}
+          </motion.div>
         </motion.div>
       ))}
     </div>

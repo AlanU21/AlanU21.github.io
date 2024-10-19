@@ -1,7 +1,7 @@
 import { FaInstagram, FaGithub, FaLinkedin, FaEnvelope } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
-const Footer = () => {
+const Footer = ({ isFirstLoad }) => {
   const socialLinks = [
     { icon: FaInstagram, href: 'https://www.instagram.com/alan_uthuppan' },
     { icon: FaGithub, href: 'https://github.com/alanu21' },
@@ -16,7 +16,7 @@ const Footer = () => {
 
   return (
     <motion.footer
-      initial="hidden"
+      initial={isFirstLoad ? "hidden" : "visible"}
       animate="visible"
       variants={footerVariants}
       className="sticky bg-transparent py-6"
@@ -27,12 +27,13 @@ const Footer = () => {
             <motion.a
               key={index}
               href={href}
-              target="_self"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-gold hover:text-white transition-colors duration-300"
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.9 }}
             >
-              <Icon size={48} />
+              <Icon size={36} />
             </motion.a>
           ))}
         </div>
