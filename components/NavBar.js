@@ -13,7 +13,7 @@ const NavBar = ({ isScrolled, isFirstLoad }) => {
       variants={navVariants}
       initial={isFirstLoad ? "hidden" : "visible"}
       animate="visible"
-      className={`sticky top-0 px-2 z-50 transition-all duration-300 ${
+      className={`sticky top-0 px-2 pt-2 z-50 transition-all duration-300 ${
         isScrolled ? 'bg-black bg-opacity-50' : 'bg-transparent'
       }`}
     >
@@ -30,7 +30,7 @@ const NavBar = ({ isScrolled, isFirstLoad }) => {
           </Link>
         </motion.div>
         <ul className="flex space-x-6">
-          {['home', 'about', 'projects', 'contact'].map((item) => (
+          {['home', 'about', 'projects'].map((item) => (
             <li key={item}>
               <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
                 <Link href={`/${item === 'home' ? '' : item}`} passHref>

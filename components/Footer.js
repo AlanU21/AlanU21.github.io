@@ -21,8 +21,8 @@ const Footer = ({ isFirstLoad }) => {
       variants={footerVariants}
       className="sticky bg-transparent py-6"
     >
-      <div className="container mx-auto px-4 flex flex-col items-center">
-        <div className="flex space-x-6 mb-4">
+      <div className="container bg-transparent mx-auto px-4 flex flex-col items-center">
+        <div className="flex bg-transparent space-x-6 mb-4">
           {socialLinks.map(({ icon: Icon, href }, index) => (
             <motion.a
               key={index}
