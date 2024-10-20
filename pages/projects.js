@@ -96,7 +96,7 @@ const Projects = () => {
         />
       </Head>
 
-      <h1 className="text-3xl pt-5 font-bold text-center text-[#FFC107] mb-6">Projects</h1>
+      <h1 className="text-4xl pt-5 font-bold text-center text-[#FFC107] mb-6">Projects</h1>
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

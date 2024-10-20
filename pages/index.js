@@ -6,7 +6,6 @@ import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 
 export default function Home() {
-  // Controls for each section animation
   const navControls = useAnimation();
   const helloControls = useAnimation();
   const nameControls = useAnimation();
@@ -14,19 +13,16 @@ export default function Home() {
   const buttonControls = useAnimation();
   const footerControls = useAnimation();
 
-  // States to track completion of animations
   const [isNavComplete, setIsNavComplete] = useState(false);
   const [isHelloComplete, setIsHelloComplete] = useState(false);
   const [isNameComplete, setIsNameComplete] = useState(false);
 
-  // Start NavBar animation first
   useEffect(() => {
     navControls.start("visible").then(() => {
       setIsNavComplete(true);
     });
   }, [navControls]);
 
-  // Start "Hello 👋🏾, I'm" animation after NavBar animation completes
   useEffect(() => {
     if (isNavComplete) {
       helloControls.start("visible").then(() => {
@@ -35,7 +31,6 @@ export default function Home() {
     }
   }, [isNavComplete, helloControls]);
 
-  // Start name typing animation after "Hello 👋🏾, I'm" animation completes
   useEffect(() => {
     if (isHelloComplete) {
       nameControls.start("visible").then(() => {
@@ -44,7 +39,6 @@ export default function Home() {
     }
   }, [isHelloComplete, nameControls]);
 
-  // Start rest of the page animations after name typing completes
   useEffect(() => {
     if (isNameComplete) {
       textControls.start("visible");
@@ -53,7 +47,6 @@ export default function Home() {
     }
   }, [isNameComplete, textControls, buttonControls, footerControls]);
 
-  // Variants for the animations
   const navVariants = {
     hidden: { y: -100, opacity: 0 },
     visible: { y: 0, opacity: 1, transition: { duration: 0.5 } },
@@ -117,7 +110,6 @@ export default function Home() {
       </Head>
 
       <div className="container mx-auto px-4 py-20 text-center">
-        {/* "Hello 👋🏾, I'm" Animation */}
         <motion.div
           initial="hidden"
           animate={helloControls}
@@ -128,7 +120,6 @@ export default function Home() {
           </h2>
         </motion.div>
 
-        {/* Name Typing Animation */}
         <motion.h1
           initial="hidden"
           animate={nameControls}
@@ -138,8 +129,11 @@ export default function Home() {
           Alan Uthuppan
         </motion.h1>
 
-        {/* Follow Up Text Animation */}
-        <motion.div initial="hidden" animate={textControls} variants={textVariants}>
+        <motion.div
+          initial="hidden"
+          animate={textControls}
+          variants={textVariants}
+        >
           <p className="text-white text-lg md:text-xl lg:text-2xl mb-12">
             If I haven&apos;t had the chance to introduce myself yet,
             <br /> this is the next best thing...
@@ -147,7 +141,6 @@ export default function Home() {
           </p>
         </motion.div>
 
-        {/* Button Animation */}
         <motion.div
           initial="hidden"
           animate={buttonControls}

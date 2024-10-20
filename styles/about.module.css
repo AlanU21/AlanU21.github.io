@@ -1,18 +1,23 @@
 .profileImage {
-    transition: opacity 0.5s ease-in-out;
-    border: 4px solid #FFC107;
-    box-shadow: 0 0 20px rgba(255, 193, 7, 0.5);
-  }
-  
-  .blurbContainer {
-    max-width: 80%;
-    background-color: #FFC107;
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  .blurb {
-    text-align: justify;
-    color: #000;
-  }
+  transition: opacity 0.5s ease-in-out;
+  border: 4px solid #ffc107;
+  box-shadow: 0 0 20px rgba(255, 193, 7, 0.5);
+}
+
+.blurbContainer {
+  padding: 20px;
+  background-color: #e0ab09;
+  position: relative;
+  border-radius: 10px;
+  border: 2px solid black;
+  z-index: 1;
+  width: 80%;
+  color: white;
+}
+
+.blurb {
+  text-align: center;
+  color: black;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+}
