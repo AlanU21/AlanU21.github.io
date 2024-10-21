@@ -13,22 +13,39 @@
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+    z-index: 0;
 }
 
 .timelineItem {
-    position: relative;
-    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
     padding: 20px 0;
+    position: relative;
+    z-index: 2;
 }
 
-.left {
-    left: 0;
-    padding-right: 40px;
+.timelineWrapper {
+    display: flex;
+    width: 100%;
 }
 
-.right {
-    left: 50%;
-    padding-left: 40px;
+.timelineIcon {
+    width: 50px;
+    height: 50px;
+    background-color: #FFC107;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #1C1C1C;
+    font-size: 30px;
+    z-index: 3;
+    position: absolute;
+    top: 40%;
+    left: 48%;
+    transform: translateX(-50%); 
 }
 
 .timelineContent {
@@ -38,55 +55,33 @@
     border-radius: 6px;
     border: 2px solid #FFC107;
     z-index: 1;
-    width: 100%;
+    width: 45%;
 }
 
-.timelineIcon {
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    background-color: #FFC107;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #1C1C1C;
-    font-size: 10px;
-    z-index: 100;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.left .timelineContent {
+    margin-right: auto;
 }
 
-.timelineIcon .left {
-    left: 50%;
-}
-
-.timelineIcon .right {
-    left: 50%;
+.right .timelineContent {
+    margin-left: auto;
 }
 
 @media screen and (max-width: 768px) {
-    .timelineLine {
-        left: 31px;
-    }
-
     .timelineItem {
-        width: 100%;
-        padding-left: 70px;
-        padding-right: 0;
-    }
-
-    .timelineItem.right {
-        left: 0;
+        flex-direction: column;
+        align-items: flex-start;
     }
 
     .timelineIcon {
-        left: 31px !important;
-        transform: translateX(-50%);
+        left: 80%;
+        top: 18%;
     }
 
     .timelineContent {
-        width: calc(100% - 40px);
+        width: 100%;
+    }
+
+    .timelineLine {
+        left: 0%;
     }
 }
