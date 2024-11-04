@@ -90,14 +90,6 @@ export default function Home() {
     },
   };
 
-  const footerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { duration: 1.2 },
-    },
-  };
-
   return (
     <div>
       <Head>
@@ -109,7 +101,7 @@ export default function Home() {
         <link rel="canonical" href="https://www.alanuthuppan.com" />
       </Head>
 
-      <div className="container mx-auto px-4 py-20 text-center">
+      <div className="container mx-auto py-6 text-center">
         <motion.div
           initial="hidden"
           animate={helloControls}
@@ -124,7 +116,7 @@ export default function Home() {
           initial="hidden"
           animate={nameControls}
           variants={nameVariants}
-          className="text-gold text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 typewriter"
+          className="text-gold text-4xl md:text-7xl lg:text-8xl font-extrabold mb-6 typewriter"
         >
           Alan Uthuppan
         </motion.h1>
@@ -134,7 +126,7 @@ export default function Home() {
           animate={textControls}
           variants={textVariants}
         >
-          <p className="text-white text-lg md:text-xl lg:text-2xl mb-12">
+          <p className="text-white text-lg sm:text-md md:text-xl lg:text-2xl px-5 mb-6 mt-6">
             If I haven&apos;t had the chance to introduce myself yet,
             <br /> this is the next best thing...
             <span className="font-bold">welcome to my portfolio!</span>
@@ -145,28 +137,24 @@ export default function Home() {
           initial="hidden"
           animate={buttonControls}
           variants={buttonVariants}
-          className="flex flex-col md:flex-row justify-center items-center md:space-x-6 space-y-4 md:space-y-0"
+          className="flex flex-col justify-center items-center py-4 space-y-8 w-full"
         >
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Link
-              href="docs/AlanUthuppanResume.pdf"
-              passHref
-              className="bg-black text-white border-2 border-gold rounded-full px-10 py-4 font-regular hover:bg-gold hover:text-black hover:font-semibold transition-all duration-300 inline-block"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              DOWNLOAD RESUME
-            </Link>
-          </motion.div>
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Link
-              href="/projects"
-              passHref
-              className="bg-black text-white border-2 border-gold rounded-full px-10 py-4 font-regular hover:bg-gold hover:text-black hover:font-semibold transition-all duration-300 inline-block"
-            >
-              VIEW PROJECTS
-            </Link>
-          </motion.div>
+          <Link
+            href="docs/AlanUthuppanResume.pdf"
+            passHref
+            className="bg-black text-white border-2 border-gold rounded-full py-4 font-regular hover:bg-gold hover:text-black hover:font-semibold hover:scale-105 transition-all duration-300 w-1/2 sm:w-1/3"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            DOWNLOAD RESUME
+          </Link>
+          <Link
+            href="/projects"
+            passHref
+            className="bg-black text-white border-2 border-gold rounded-full py-4 font-regular hover:bg-gold hover:text-black hover:font-semibold hover:scale-105 transition-all duration-300 w-1/2 sm:w-1/3"
+          >
+            VIEW PROJECTS
+          </Link>
         </motion.div>
       </div>
     </div>

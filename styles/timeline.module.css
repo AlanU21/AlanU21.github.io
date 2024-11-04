@@ -43,9 +43,9 @@
     font-size: 30px;
     z-index: 3;
     position: absolute;
-    top: 40%;
-    left: 48%;
-    transform: translateX(-50%); 
+    top: 50%;
+    left: 50%;
+    transform: translate(50%, 50%);
 }
 
 .timelineContent {
@@ -83,5 +83,9 @@
 
     .timelineLine {
         left: 0%;
+    }
+
+    .hide-on-mobile {
+        display: none;
     }
 }

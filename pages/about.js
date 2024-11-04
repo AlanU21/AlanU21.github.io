@@ -83,6 +83,7 @@ const About = () => {
         initial="hidden"
         animate={controls}
         variants={variants}
+        className="flex flex-col items-center justify-center"
       >
         <h2 className="text-3xl font-semibold text-gold mb-8 text-center">
           My Journey

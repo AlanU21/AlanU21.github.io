@@ -54,7 +54,6 @@ const Timeline = () => {
           transition={{ duration: 0.5 }}
         >
           <div className={styles.timelineWrapper}>
-            {/* Left side of timeline */}
             {item.side === "left" && (
               <>
                 <div className={styles.timelineContent}>
@@ -63,9 +62,9 @@ const Timeline = () => {
                   <p className="text-gray-300">{item.description}</p>
                 </div>
                 <motion.div
-                  className={styles.timelineIcon}
-                  initial={{ opacity: 0, scale: 0 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+                  className={`${styles.timelineIcon} hide-on-mobile`}
+                  initial={{ opacity: 0, scale: 0, translateX: '-50%', translateY: '-50%' }}
+                  whileInView={{ opacity: 1, scale: 1, translateX: '-50%', translateY: '-50%' }}
                   viewport={{ once: true, amount: 0.5 }}
                   transition={{ delay: 0.2, duration: 0.3 }}
                 >
@@ -74,13 +73,12 @@ const Timeline = () => {
               </>
             )}
 
-            {/* Right side of timeline */}
             {item.side === "right" && (
               <>
                 <motion.div
-                  className={styles.timelineIcon}
-                  initial={{ opacity: 0, scale: 0 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+                  className={`${styles.timelineIcon} hide-on-mobile`}
+                  initial={{ opacity: 0, scale: 0, translateX: '-50%', translateY: '-50%' }}
+                  whileInView={{ opacity: 1, scale: 1, translateX: '-50%', translateY: '-50%'}}
                   viewport={{ once: true, amount: 0.5 }}
                   transition={{ delay: 0.2, duration: 0.3 }}
                 >

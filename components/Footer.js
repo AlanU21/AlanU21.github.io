@@ -19,10 +19,10 @@ const Footer = ({ isFirstLoad }) => {
       initial={isFirstLoad ? "hidden" : "visible"}
       animate="visible"
       variants={footerVariants}
-      className="sticky bg-transparent py-6"
+      className="bottom-08 bg-transparent py-6"
     >
-      <div className="container bg-transparent mx-auto px-4 flex flex-col items-center">
-        <div className="flex bg-transparent space-x-6 mb-4">
+      <div className="container bg-transparent mx-auto px-4 py-8 flex flex-col items-center">
+        <div className="flex bg-transparent space-x-6">
           {socialLinks.map(({ icon: Icon, href }, index) => (
             <motion.a
               key={index}
@@ -37,7 +37,7 @@ const Footer = ({ isFirstLoad }) => {
             </motion.a>
           ))}
         </div>
-        <p className="text-white text-xs">&copy; 2024 Alan Uthuppan</p>
+        <p className="text-white text-xs mt-4">&copy; 2024 Alan Uthuppan</p>
       </div>
     </motion.footer>
   );
